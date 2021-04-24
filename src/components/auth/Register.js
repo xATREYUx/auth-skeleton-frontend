@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useContext, useState } from "react";
 import { useHistory } from "react-router";
 import AuthContext from "../../context/AuthContext";
+import domain from "../../util/domain";
 
 const Register = () => {
   const [email, setEmail] = useState("");
@@ -18,7 +19,7 @@ const Register = () => {
         password,
         passwordVerify,
       };
-      await axios.post("http://localhost:5000/auth/", registerData);
+      await axios.post(`${domain}/auth/`, registerData);
       await getLoggedIn();
       history.push("/");
     } catch (err) {

@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { useState } from "react";
+import domain from "../../util/domain";
 
 export const CustomerForm = ({ getCustomers }) => {
   const [customerName, setCustomerName] = useState("");
@@ -10,7 +11,7 @@ export const CustomerForm = ({ getCustomers }) => {
       const customerData = {
         name: customerName,
       };
-      await axios.post("http://localhost:5000/customer/", customerData);
+      await axios.post(`${domain}/customer/`, customerData);
       getCustomers();
     } catch (err) {
       console.error(err);

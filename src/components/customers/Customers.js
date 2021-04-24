@@ -2,12 +2,13 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import CustomerForm from "./CustomerForm";
 import CustomerList from "./CustomerList";
+import domain from "../../util/domain";
 
 const Customers = () => {
   const [customers, setCustomers] = useState([]);
 
   const getCustomers = async () => {
-    const customersRes = await axios.get("http://localhost:5000/customer/");
+    const customersRes = await axios.get(`${domain}/customer/`);
     setCustomers(customersRes.data);
   };
 
